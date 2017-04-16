@@ -1,0 +1,93 @@
+#!/usr/bin/env bash
+
+# Go Mono https://blog.golang.org/go-fonts#TOC_2.
+
+main() {
+    if brew --version; then
+        echo brew is already installed
+    else
+        /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    fi
+    return
+
+    brew install \
+          ack \
+          automake \
+          autossh \
+          cmake \
+          cocoapods \
+          coreutils \
+          cscope \
+          ctags \
+          f3 \
+          fd \
+          fzf \
+          git \
+          git-flow \
+          gnupg \
+          go \
+          heroku/brew/heroku \
+          htop \
+          hub \
+          libtool \
+          lua \
+          luarocks \
+          magic-wormhole \
+          midnight-commander \
+          mongodb/brew/mongodb-community \
+          mysql \
+          ncdu \
+          neovim \
+          node \
+          node@10 \
+          pipenv \
+          pv \
+          python \
+          python@2 \
+          reattach-to-user-namespace \
+          redis \
+          rsync \
+          sphinx-doc \
+          ssh-copy-id \
+          the_silver_searcher \
+          tig \
+          tmux \
+          tor \
+          vim \
+          wget \
+          zsh \
+          zsh-completions \
+
+    brew cask install \
+          brave-browser \
+          dropbox \
+          calibre \
+          clipy \
+          font-firacode-nerd-font \
+          font-firamono-nerd-font \
+          font-hack-nerd-font \
+          font-meslo-nerd-font \
+          font-noto-nerd-font \
+          font-proggyclean-nerd-font \
+          font-robotomono-nerd-font \
+          firefox \
+          karabiner-elements \
+          keepassxc \
+          mongodb-compass \
+          react-native-debugger \
+          prey \
+          postman
+          remember-the-milk \
+          signal \
+          slack \
+          rectangle \
+          vimr \
+
+    npm install \
+          neovim \
+
+    git clone --depth=1 https://github.com/zsh-users/zsh-completions ${ZSH_CUSTOM:=~/.oh-my-zsh/custom}/plugins/zsh-completions
+}
+
+main "$*"
+echo 'Installing brew stuff...\n'

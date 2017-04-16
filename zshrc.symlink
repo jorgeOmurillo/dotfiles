@@ -1,0 +1,98 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+ZSH_DISABLE_COMPFIX="true"
+
+# Path to your oh-my-zsh configuration.
+ZSH=$HOME/.oh-my-zsh
+ZSH_THEME="powerlevel10k/powerlevel10k"
+
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# Set to this to use case-sensitive completion
+# CASE_SENSITIVE="true"
+
+# Disable update prompt
+DISABLE_UPDATE_PROMPT="true"
+
+# Comment this out to disable bi-weekly auto-update checks
+# DISABLE_AUTO_UPDATE="true"
+
+# Uncomment to change how often before auto-updates occur? (in days)
+# export UPDATE_ZSH_DAYS=13
+
+# Uncomment following line if you want to disable colors in ls
+# DISABLE_LS_COLORS="true"
+
+# Uncomment following line if you want to disable autosetting terminal title.
+# DISABLE_AUTO_TITLE="true"
+
+# Uncomment following line if you want to disable command autocorrection
+# DISABLE_CORRECTION="true"
+
+# Uncomment following line if you want red dots to be displayed while waiting for completion
+# COMPLETION_WAITING_DOTS="true"
+
+# Uncomment following line if you want to disable marking untracked files under
+# VCS as dirty. This makes repository status check for large repositories much,
+# much faster.
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+plugins=(git osx tmux rsync brew pip zsh-syntax-highlighting vi-mode zsh-completions)
+
+source $ZSH/oh-my-zsh.sh
+
+# Customize to your needs...
+export PATH=/usr/local/bin:/usr/local/sbin:$PATH
+export PATH=/usr/local/opt/python/libexec/bin:$PATH
+
+# English Language
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+
+# Personal aliases
+alias reload='source ~/.zshrc'
+alias projects='cd ~/Projects/'
+alias pi='autossh -M 0 pi@192.168.0.50'
+alias osmc='autossh -M 0 osmc@192.168.0.51'
+alias bu="brew update && brew upgrade && brew cask upgrade && brew cleanup"
+# alias takeover='tmux detach -a'
+
+# Filesystem
+alias ..='cd ..'            # Go up one directory
+alias ...='cd ../..'        # Go up two directories
+alias ....='cd ../../..'    # And for good measure
+alias l='ls -lah'           # Long view, show hidden
+alias la='ls -AF'           # Compact view, show hidden
+alias ll='ls -lFh'          # Long view, no hidden
+alias vim='nvim'
+alias ls='ls -G'
+
+# FZF config
+export FZF_DEFAULT_COMMAND="fd --exclude={.git,.idea,ios,android,.vscode,.sass-cache,node_modules,build,.png,.jpg} --type f"
+export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
+--color=dark
+--color=fg:-1,bg:-1,hl:#c678dd,fg+:#ffffff,bg+:#4b5263,hl+:#d858fe
+--color=info:#98c379,prompt:#61afef,pointer:#be5046,marker:#e5c07b,spinner:#61afef,header:#61afef
+'
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+ZSH_HIGHLIGHT_STYLES[path]=none
+ZSH_HIGHLIGHT_STYLES[path_prefix]=none
+POWERLEVEL9K_MODE='nerdfont-complete'
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
+eval "$(direnv hook zsh)"
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

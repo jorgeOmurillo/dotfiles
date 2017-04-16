@@ -1,0 +1,9 @@
+[credential]
+	helper = osxkeychain
+[user]
+	name = jorgeOmurillo
+	email = j.orlandomurillo@gmail.com
+[core]
+	;excludesfile = /Users/mnemonicj/.gitignore_global
+[alias]
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit

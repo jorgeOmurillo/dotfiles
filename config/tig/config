@@ -1,0 +1,2 @@
+color cursor black green bold
+bind generic 9 !@sh -c "git rev-parse --short %(commit) | pbcopy"
